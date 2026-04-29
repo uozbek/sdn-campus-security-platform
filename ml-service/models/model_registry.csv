@@ -1,0 +1,2 @@
+model_id,model_name,algorithm,dataset,feature_set,model_file,scaler_file,status,notes
+M000,heuristic_baseline,rule_based,none,lightweight_flow_stats,none,none,active,Temporary baseline model for integration tests

@@ -1,0 +1,34 @@
+experiment:
+  id: "E02"
+  name: "Controlled UDP Flood Lab Scenario"
+  description: "Controlled UDP high-rate traffic from attacker lab host to server host."
+  duration_seconds: 60
+  repeat_count: 3
+
+topology:
+  name: "campus_topology_v1"
+
+roles:
+  attacker_hosts:
+    - h12
+  target_server:
+    - h14
+  monitoring_host:
+    - h15
+
+traffic:
+  - type: "udp_iperf"
+    source: "h12"
+    destination: "h14"
+    server_command: "iperf3 -s"
+    client_command: "iperf3 -u -c 10.10.40.14 -b 20M -t 30"
+
+expected_result:
+  attack_expected: true
+  expected_policy_action: "rate_limit_or_drop"
+
+metrics:
+  collect_flow_stats: true
+  collect_predictions: true
+  collect_controller_metrics: true
+  save_pcap: true

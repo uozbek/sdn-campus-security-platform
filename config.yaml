@@ -1,0 +1,81 @@
+project:
+  name: "SDN Campus Security Platform"
+  version: "0.1.0"
+  environment: "lab"
+
+controller:
+  framework: "ryu"
+  host: "127.0.0.1"
+  openflow_port: 6653
+  openflow_version: "1.3"
+  stats_interval: 5
+  flow_idle_timeout: 30
+  flow_hard_timeout: 0
+
+topology:
+  name: "campus_topology_v1"
+  core_switches: 1
+  distribution_switches: 2
+  access_switches: 4
+  hosts: 16
+
+network_segments:
+  student:
+    subnet: "10.10.10.0/24"
+    hosts: ["h1", "h2", "h3", "h4"]
+  academic:
+    subnet: "10.10.20.0/24"
+    hosts: ["h5", "h6", "h7"]
+  administrative:
+    subnet: "10.10.30.0/24"
+    hosts: ["h8", "h9"]
+  guest:
+    subnet: "10.10.50.0/24"
+    hosts: ["h10", "h11"]
+  attacker_lab:
+    subnet: "10.10.60.0/24"
+    hosts: ["h12", "h13"]
+  server:
+    subnet: "10.10.40.0/24"
+    hosts: ["h14"]
+  monitoring:
+    subnet: "10.10.70.0/24"
+    hosts: ["h15"]
+  quarantine:
+    subnet: "10.10.99.0/24"
+    hosts: ["h16"]
+
+ml_service:
+  enabled: true
+  host: "127.0.0.1"
+  port: 8000
+  predict_endpoint: "http://127.0.0.1:8000/predict"
+  timeout_seconds: 1.5
+  model_registry: "ml-service/models/model_registry.csv"
+
+policy:
+  monitor_threshold: 0.70
+  rate_limit_threshold: 0.85
+  drop_threshold: 0.95
+  quarantine_threshold: 0.97
+  repeated_attack_count: 3
+
+mitigation:
+  enabled: false
+  default_action: "monitor"
+  drop_timeout: 60
+  rate_limit_mbps: 2
+  quarantine_timeout: 300
+
+logging:
+  base_dir: "logs"
+  flow_stats_file: "logs/flow_stats.csv"
+  predictions_file: "logs/predictions.csv"
+  mitigation_file: "logs/mitigation_log.csv"
+  controller_metrics_file: "logs/controller_metrics.csv"
+  experiment_metadata_file: "logs/experiment_metadata.json"
+
+experiments:
+  default_duration_seconds: 60
+  repeat_count: 3
+  save_pcaps: true

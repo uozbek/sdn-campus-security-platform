@@ -1,0 +1,41 @@
+experiment:
+  id: "E01"
+  name: "Normal Traffic Baseline"
+  description: "Baseline benign traffic scenario for false positive evaluation."
+  duration_seconds: 60
+  repeat_count: 3
+
+topology:
+  name: "campus_topology_v1"
+
+roles:
+  benign_clients:
+    - h1
+    - h2
+    - h3
+  target_server:
+    - h14
+  monitoring_host:
+    - h15
+
+traffic:
+  - type: "icmp"
+    source: "h1"
+    destination: "h14"
+    command: "ping -c 20 10.10.40.14"
+
+  - type: "tcp_iperf"
+    source: "h2"
+    destination: "h14"
+    server_command: "iperf3 -s"
+    client_command: "iperf3 -c 10.10.40.14 -t 30 -b 2M"
+
+expected_result:
+  attack_expected: false
+  expected_policy_action: "allow_or_monitor"
+
+metrics:
+  collect_flow_stats: true
+  collect_predictions: true
+  collect_controller_metrics: true
+  save_pcap: true
