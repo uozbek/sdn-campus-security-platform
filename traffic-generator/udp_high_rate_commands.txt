@@ -1,0 +1,7 @@
+# Controlled UDP High-Rate Traffic Scenario
+# Run these commands inside Mininet CLI.
+# This is lab-only traffic inside Mininet.
+
+h14 iperf3 -s &
+
+h12 iperf3 -u -c 10.10.40.14 -b 20M -t 30

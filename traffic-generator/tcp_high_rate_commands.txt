@@ -1,0 +1,6 @@
+# Controlled TCP High-Rate Traffic Scenario
+# Run these commands inside Mininet CLI.
+
+h14 iperf3 -s &
+
+h12 iperf3 -c 10.10.40.14 -t 30 -b 20M
