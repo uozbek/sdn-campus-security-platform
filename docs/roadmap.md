@@ -65,3 +65,33 @@ cd ~/sdn-campus-security-platform
 source venv/bin/activate
 cd ml-service
 uvicorn app:app --host 127.0.0.1 --port 8000
+
+---
+
+## Aşama 10 — Mitigation V1: OpenFlow Drop Rule
+
+### Durum
+Tamamlandı / Test edildi.
+
+### Eklenen Dosyalar
+- `controller/campus_l3_ids_controller_v7.py`
+
+### Yapılan Değişiklikler
+- Controller V7 sürümü oluşturuldu.
+- Policy Engine sonucuna göre gerçek mitigation katmanı eklendi.
+- `drop` ve `quarantine_candidate` final action değerleri mitigation tetikleyici olarak tanımlandı.
+- OpenFlow drop rule basma fonksiyonu eklendi.
+- Drop kuralları `priority=300` ile kurulacak şekilde ayarlandı.
+- Drop kuralları süreli olacak şekilde `idle_timeout=60`, `hard_timeout=120` değerleriyle yapılandırıldı.
+- Tekrarlı aynı mitigation kurulumunu önlemek için `active_mitigations` sözlüğü eklendi.
+- `logs/mitigation_log.csv` dosyası eklendi.
+
+### Test Komutları
+
+ML API:
+
+```bash
+cd ~/sdn-campus-security-platform
+source venv/bin/activate
+cd ml-service
+uvicorn app:app --host 127.0.0.1 --port 8000
