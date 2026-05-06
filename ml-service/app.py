@@ -138,12 +138,12 @@ def heuristic_baseline_predict(features: FlowFeatures):
 
     # Conservative thresholds for lab-only testing.
     # These values should be tuned after observing normal traffic baselines.
-    if packet_rate >= 1000 or byte_rate >= 5_000_000:
+    if packet_rate >= 5000 or byte_rate >= 10_000_000:
         prediction = "ddos_suspected"
         confidence = 0.95
         recommended_action = "drop"
 
-    elif packet_rate >= 300 or byte_rate >= 1_000_000:
+    elif packet_rate >= 800 or byte_rate >= 1_000_000:
         prediction = "suspicious"
         confidence = 0.85
         recommended_action = "rate_limit"
