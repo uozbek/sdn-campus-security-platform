@@ -1,6 +1,6 @@
 # Tez Tablo/Şekil Başlığı ve Kaynakça Ön Kontrol Raporu
 
-- Generated at UTC: `2026-05-31T19:44:11.301266`
+- Generated at UTC: `2026-06-07T10:18:04.984988`
 - DOCX: `docs/tez_ana_taslak_tr_guncel_sau_fbe.docx`
 
 ## 1. Özet
@@ -29,28 +29,28 @@
 
 ## 3. Bulunan Tablo Başlığı Örnekleri
 
-- P187: Tablo 3.1. SDN/DDoS/OpenFlow Odaklı Seçilmiş Çalışmalar
-- P190: Tablo 3.2. ML/DL Tabanlı Seçilmiş IDS Çalışmaları
-- P194: Tablo 3.3. Özellik Seçimi Odaklı Seçilmiş Çalışmalar
-- P197: Tablo 3.4. Runtime/Controller/Testbed Odaklı Seçilmiş Çalışmalar
-- P200: Tablo 3.5. Mitigation/Prevention Odaklı Seçilmiş Çalışmalar
-- P203: Tablo 3.6. Veri Kümesi Odaklı Seçilmiş Çalışmalar
-- P206: Tablo 3.7. SDN tabanlı DDoS tespit ve önleme çalışmalarının yöntemsel karşılaştırması
-- P404: Tablo 4.4.1. Canonical tekrarlı çalışma zamanı doğrulama sonuçları
-- P409: Tablo 4.4.2. Denetleyici taraflı IDS/IPS politika aksiyon dağılımı
-- P419: Tablo 4.4.3. Final XGBoost Top-20 modelinin çalışma zamanı tahmin dağılımı
-- P425: Tablo 4.4.4. Protocol-aware final policy dağılımı
-- P435: Tablo 4.4.5. SDN denetleyicisi önleme aksiyon özeti
-- P444: Tablo 4.4.6. Flow-level model-denetleyici karşılaştırması
-- P450: Tablo 4.4.7. Flow-level saldırı olasılığı ve protokol farkındalıklı final action özeti
-- P530: Tablo 5.1. Bu tez çalışmasının mevcut literatürle sonuç ve işlevsellik açısından karşılaştırılması
+- P188: Tablo 3.1. SDN/DDoS/OpenFlow Odaklı Seçilmiş Çalışmalar
+- P191: Tablo 3.2. ML/DL Tabanlı Seçilmiş IDS Çalışmaları
+- P195: Tablo 3.3. Özellik Seçimi Odaklı Seçilmiş Çalışmalar
+- P198: Tablo 3.4. Runtime/Controller/Testbed Odaklı Seçilmiş Çalışmalar
+- P201: Tablo 3.5. Mitigation/Prevention Odaklı Seçilmiş Çalışmalar
+- P204: Tablo 3.6. Veri Kümesi Odaklı Seçilmiş Çalışmalar
+- P207: Tablo 3.7. SDN tabanlı DDoS tespit ve önleme çalışmalarının yöntemsel karşılaştırması
+- P410: Tablo 4.4.1. Canonical tekrarlı çalışma zamanı doğrulama sonuçları
+- P415: Tablo 4.4.2. Denetleyici taraflı IDS/IPS politika aksiyon dağılımı
+- P425: Tablo 4.4.3. Final XGBoost Top-20 modelinin çalışma zamanı tahmin dağılımı
+- P431: Tablo 4.4.4. Protocol-aware final policy dağılımı
+- P441: Tablo 4.4.5. SDN denetleyicisi önleme aksiyon özeti
+- P450: Tablo 4.4.6. Flow-level model-controller karşılaştırması
+- P456: Tablo 4.4.7. Flow-level saldırı olasılığı ve protocol-aware final action özeti
+- P536: Tablo 5.1. Bu tez çalışmasının mevcut literatürle sonuç ve işlevsellik açısından karşılaştırılması
 
 ## 4. Bulunan Şekil Başlığı Örnekleri
 
-- P410: Şekil 4.4.1. Denetleyici taraflı politika aksiyon dağılımı
-- P420: Şekil 4.4.2. Runtime NORMAL/SALDIRI tahmin dağılımı
-- P426: Şekil 4.4.3. Protocol-aware final policy aksiyon dağılımı
-- P436: Şekil 4.4.4. SDN denetleyicisi önleme aksiyon özeti
+- P416: Şekil 4.4.1. Denetleyici taraflı politika aksiyon dağılımı
+- P426: Şekil 4.4.2. Runtime NORMAL/SALDIRI tahmin dağılımı
+- P432: Şekil 4.4.3. Protocol-aware final policy aksiyon dağılımı
+- P442: Şekil 4.4.4. SDN denetleyicisi önleme aksiyon özeti
 
 ## 5. Kaynakça / Referans Sinyalleri
 
