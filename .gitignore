@@ -71,3 +71,62 @@ docs/final_global_docx_text_extract.txt
 
 # Keep directory placeholders
 !.gitkeep
+
+# --- Thesis/generated audit outputs ---
+docs/*.csv
+docs/*.json
+docs/*.xlsx
+docs/*.zip
+docs/*.txt
+docs/final_reading_chunks/
+docs/notero_lit_table_extracted/
+docs/literature_review/
+docs/thesis_template_sources/
+docs/zotero_exports/
+
+# Keep thesis markdown sources
+!docs/*.md
+!docs/thesis_metadata.yaml
+
+# --- Datasets and archives ---
+datasets/
+CSV-03-11.zip
+*.zip
+
+# --- Runtime logs and captures ---
+logs/
+*.pcap
+*.cap
+*.dump
+
+# --- Experiment generated outputs ---
+experiments/results/
+experiments/flow_features/
+mixed_traffic_experiment_report.md
+mixed_traffic_experiment_summary.json
+runtime_pipeline_summary.txt
+
+# --- ML service datasets, metrics, model artifacts ---
+ml-service/datasets/
+ml-service/experiments/
+ml-service/models/archive/
+ml-service/models/backup_active_before_pso_*/
+ml-service/models/baseline/
+ml-service/models/final_xgboost_top20/
+ml-service/models/full_candidate_models/
+ml-service/models/large_baseline_lightgbm/
+ml-service/models/large_model_comparison/
+ml-service/models/selected/
+ml-service/models/xgboost_topk_ablation_models/
+ml-service/models/xgboost_topk_models/
+ml-service/models/active/*.pkl
+ml-service/models/active/*.joblib
+ml-service/models/active/*.onnx
+ml-service/models/active/*.bin
+
+# Keep lightweight model metadata if needed
+!ml-service/models/active/.gitkeep
+!ml-service/models/active/*.json
+
+# --- Reports generated from experiments ---
+reports/

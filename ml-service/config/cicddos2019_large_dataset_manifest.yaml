@@ -1,0 +1,276 @@
+dataset_name: cicddos2019_large_cross_day
+dataset_family: CIC-DDoS2019
+task: binary_ddos_detection
+label_mode: binary_and_multiclass
+random_state: 42
+
+paths:
+  train_raw_csv_dir: ml-service/datasets/raw/cicddos2019/CSV-01-12
+  holdout_raw_csv_dir: ml-service/datasets/raw/cicddos2019/CSV-03-11
+  processed_dir: ml-service/datasets/processed
+  metadata_dir: ml-service/datasets/metadata
+
+outputs:
+  train_csv: ml-service/datasets/processed/cicddos2019_train_01_12.csv
+  train_sampled_csv: ml-service/datasets/processed/cicddos2019_train_01_12_sampled.csv
+  holdout_csv: ml-service/datasets/processed/cicddos2019_holdout_03_11.csv
+  holdout_sampled_csv: ml-service/datasets/processed/cicddos2019_holdout_03_11_sampled.csv
+
+  train_label_distribution_csv: ml-service/datasets/metadata/cicddos2019_train_label_distribution.csv
+  train_attack_distribution_csv: ml-service/datasets/metadata/cicddos2019_train_attack_distribution.csv
+  holdout_label_distribution_csv: ml-service/datasets/metadata/cicddos2019_holdout_label_distribution.csv
+  holdout_attack_distribution_csv: ml-service/datasets/metadata/cicddos2019_holdout_attack_distribution.csv
+
+  feature_columns_json: ml-service/datasets/metadata/cicddos2019_cross_day_feature_columns.json
+  manifest_resolved_json: ml-service/datasets/metadata/cicddos2019_cross_day_manifest_resolved.json
+  build_report_json: ml-service/datasets/metadata/cicddos2019_cross_day_build_report.json
+
+split_strategy:
+  type: cross_day
+  train_day: CSV-01-12
+  holdout_day: CSV-03-11
+
+label_columns:
+  candidates:
+    - Label
+    - label
+    - Attack
+    - attack
+
+id_columns_to_drop:
+  - Flow ID
+  - Source IP
+  - Src IP
+  - Destination IP
+  - Dst IP
+  - Timestamp
+  - SimillarHTTP
+  - Fwd Header Length.1
+
+cleaning:
+  strip_column_names: true
+  replace_inf_with_nan: true
+  drop_all_nan_columns: true
+  fill_numeric_nan_with: 0.0
+  lightgbm_safe_feature_names: true
+
+sampling:
+  enabled: true
+  train_benign_max_rows: 300000
+  train_attack_max_rows_per_type: 300000
+  holdout_benign_max_rows: 300000
+  holdout_attack_max_rows_per_type: 300000
+  random_state: 42
+
+binary_labels:
+  benign_values:
+    - BENIGN
+    - Benign
+    - benign
+  benign_output: 0
+  attack_output: 1
+
+attack_type_normalization:
+  dns:
+    aliases:
+      - DNS
+      - DrDoS_DNS
+  ldap:
+    aliases:
+      - LDAP
+      - DrDoS_LDAP
+  mssql:
+    aliases:
+      - MSSQL
+      - DrDoS_MSSQL
+  netbios:
+    aliases:
+      - NetBIOS
+      - DrDoS_NetBIOS
+  ntp:
+    aliases:
+      - NTP
+      - DrDoS_NTP
+  snmp:
+    aliases:
+      - SNMP
+      - DrDoS_SNMP
+  ssdp:
+    aliases:
+      - SSDP
+      - DrDoS_SSDP
+  udp:
+    aliases:
+      - UDP
+      - DrDoS_UDP
+  syn:
+    aliases:
+      - Syn
+      - SYN
+      - DrDoS_Syn
+  tftp:
+    aliases:
+      - TFTP
+  udplag:
+    aliases:
+      - UDPLag
+      - UDP-lag
+      - UDP-Lag
+  portmap:
+    aliases:
+      - Portmap
+      - PORTMAP
+  portscan:
+    aliases:
+      - PortScan
+      - Portscan
+      - PORTSCAN
+
+selected_train_attack_types:
+  - dns
+  - ldap
+  - mssql
+  - netbios
+  - ntp
+  - snmp
+  - ssdp
+  - udp
+  - syn
+  - tftp
+  - udplag
+
+selected_holdout_attack_types:
+  - ldap
+  - mssql
+  - netbios
+  - syn
+  - udp
+  - udplag
+
+excluded_attack_types:
+  - portmap
+  - portscan
+
+notes:
+  - "CSV-01-12 is used as train/validation source."
+  - "CSV-03-11 is used as holdout testing source."
+  - "Portmap and PortScan are excluded from the main DDoS detection pipeline."
+  - "The current active model was trained on a reduced subset and should be considered a pilot integration model."
+  - "This cross-day dataset phase is intended for stronger thesis-level model training."
+  
+## Aşama 14.11-B — Chunk-based Cross-day CIC-DDoS2019 Dataset Build
+
+### Durum
+Tamamlandı.
+
+### Çıktılar
+- `ml-service/datasets/processed/cicddos2019_train_01_12_sampled.csv`
+- `ml-service/datasets/processed/cicddos2019_holdout_03_11_sampled.csv`
+- `ml-service/datasets/metadata/cicddos2019_cross_day_build_report.json`
+- `ml-service/datasets/metadata/cicddos2019_cross_day_feature_columns.json`
+- `ml-service/datasets/metadata/cicddos2019_train_attack_distribution.csv`
+- `ml-service/datasets/metadata/cicddos2019_holdout_attack_distribution.csv`
+
+### Train Set
+- Kaynak: CSV-01-12
+- Satır sayısı: 3,356,863
+- Feature sayısı: 81
+- Saldırı türleri: dns, ldap, mssql, ntp, netbios, snmp, ssdp, udp, syn, tftp, udplag
+- Her saldırı türünden en fazla 300.000 satır alınmıştır.
+- Benign satır sayısı: 56.863
+
+### Holdout Set
+- Kaynak: CSV-03-11
+- Satır sayısı: 1,558,838
+- Feature sayısı: 81
+- Saldırı türleri: netbios, ldap, mssql, syn, udp, udplag
+- Portmap başarıyla dışarıda bırakılmıştır.
+- Benign satır sayısı: 56.965
+
+### Kritik Not
+Bu veri seti reduced pilot dataset’e göre çok daha büyük ve temsilîdir. Yeni model eğitimi bu cross-day yapı üzerinden yapılacaktır.
+
+## Aşama 14.11-D — Model-ready Large Dataset Preparation
+
+### Durum
+Başlatıldı.
+
+### Amaç
+Profiling sonucunda train ve holdout tarafında sabit olduğu tespit edilen feature’ları çıkararak model eğitimine daha uygun bir büyük CIC-DDoS2019 dataset üretmek.
+
+### Girdi
+- `cicddos2019_train_01_12_sampled.csv`
+- `cicddos2019_holdout_03_11_sampled.csv`
+- `large_dataset_profile_report.json`
+
+### Beklenen Çıktı
+- `cicddos2019_train_01_12_model_ready.csv`
+- `cicddos2019_holdout_03_11_model_ready.csv`
+- `feature_order_all_features.json`
+- `model_ready_large_dataset_report.json`
+
+### Beklenen Feature Azaltımı
+81 ortak feature’dan 12 sabit feature çıkarılarak yaklaşık 69 model-ready feature kalacaktır.
+
+
+---
+
+# 5. Sıradaki en doğru faz
+
+Şimdi iki seçenek var:
+
+```text
+Aşama 14.11-F:
+Large baseline için grafikler ve tablo üretmek
+
+Aşama 14.12:
+Feature reduction / feature selection sürecini büyük dataset için yeniden başlatmak
+
+## Aşama 14.12 — Large Model Comparison and Feature Reduction
+
+### Gerekçe
+Large LightGBM baseline modeli holdout testte güçlü performans göstermiştir; ancak false negative sayısı IDS/IPS bağlamında iyileştirilmesi gereken bir noktadır.
+
+### Hedefler
+1. LightGBM sonucunu görselleştirmek
+2. Alternatif sınıflandırma algoritmalarını test etmek
+3. Holdout false negative sayısını azaltabilecek modelleri incelemek
+4. Threshold tuning ile recall/FNR dengesini analiz etmek
+5. Feature importance ve feature reduction sürecine geçmek
+6. Selected-feature final model oluşturmak
+
+### Değerlendirilecek Modeller
+- LightGBM
+- XGBoost
+- ExtraTrees
+- RandomForest
+- HistGradientBoosting
+- LogisticRegression
+- CatBoost, kuruluysa
+
+### Kritik Metrikler
+- Holdout Recall
+- Holdout FNR
+- Holdout FN count
+- Holdout FPR
+- Holdout F1-score
+- Inference latency
+- Feature count
+
+## Aşama 14.12-B — LightGBM Threshold Tuning
+
+### Durum
+Tamamlandı.
+
+### Bulgular
+LightGBM holdout tahminleri üzerinde 0.50 ile 0.10 arasında farklı karar eşikleri denenmiştir. Threshold düşürülmesine rağmen false negative sayısı değişmemiştir.
+
+### Sonuç
+- FN: 33.226 olarak sabit kalmıştır.
+- FNR: 0.022123 olarak sabit kalmıştır.
+- Recall: 0.977877 olarak sabit kalmıştır.
+- Threshold düştükçe yalnızca FP artmıştır.
+
+### Yorum
+Kaçırılan saldırı örnekleri model tarafından düşük saldırı olasılığı ile sınıflandırılmaktadır. Bu nedenle FN azaltımı için yalnızca threshold tuning yeterli değildir. Alternatif model aileleri, ensemble yöntemleri ve feature selection analizleri gereklidir.
+
