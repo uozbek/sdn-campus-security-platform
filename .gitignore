@@ -130,3 +130,8 @@ ml-service/models/active/*.bin
 
 # --- Reports generated from experiments ---
 reports/
+
+# Local backup scripts/files
+*_backup_*.py
+*.backup.*
+*.before_*

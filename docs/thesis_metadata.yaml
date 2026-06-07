@@ -1,0 +1,38 @@
+university: "SAKARYA ÜNİVERSİTESİ"
+institute: "FEN BİLİMLERİ ENSTİTÜSÜ"
+department: "BİLGİSAYAR VE BİLİŞİM MÜHENDİSLİĞİ ANABİLİM DALI"
+program: "BİLGİSAYAR MÜHENDİSLİĞİ"
+degree_type_tr: "DOKTORA TEZİ"
+degree_type_en: "Ph.D. Thesis"
+
+title_tr: "Yazılım Tanımlı Kampüs Ağlarında Makine Öğrenmesi Destekli DDoS Saldırı Tespiti ve Önleme Sistemi"
+title_en: "Machine Learning-Assisted DDoS Attack Detection and Prevention System in Software-Defined Campus Networks"
+
+author: "TODO_AD_SOYAD"
+student_id: "TODO_OGR_NO"
+advisor: "TODO_DANISMAN"
+co_advisor: ""
+
+city: "SAKARYA"
+year: "2026"
+
+jury:
+  - "TODO_JURI_1"
+  - "TODO_JURI_2"
+  - "TODO_JURI_3"
+  - "TODO_JURI_4"
+  - "TODO_JURI_5"
+
+keywords_tr:
+  - "Yazılım Tanımlı Ağlar"
+  - "DDoS"
+  - "Makine Öğrenmesi"
+  - "Saldırı Tespit Sistemi"
+  - "Saldırı Önleme Sistemi"
+
+keywords_en:
+  - "Software-Defined Networking"
+  - "DDoS"
+  - "Machine Learning"
+  - "Intrusion Detection System"
+  - "Intrusion Prevention System"
