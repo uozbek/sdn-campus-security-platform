@@ -1,0 +1,21 @@
+# Decision mode runtime scenario
+# Same traffic sequence for all decision modes.
+
+h14 pkill -f iperf3
+h14 iperf3 -s &
+
+sh sleep 5
+
+h1 ping -c 5 10.10.40.14
+
+sh sleep 3
+
+h1 iperf3 -c 10.10.40.14 -t 20 -b 1M
+
+sh sleep 5
+
+h12 iperf3 -u -c 10.10.40.14 -b 30M -t 60
+
+sh sleep 25
+
+exit

@@ -1,0 +1,60 @@
+name: mixed_benign_malicious_replay_v1
+
+description: >
+  Mixed benign TCP/UDP and malicious UDP traffic scenario for validating
+  the Final XGBoost Top-20 model and Ryu controller-side hybrid IDS/IPS policy.
+
+controller:
+  decision_mode: hybrid
+  ryu_app: controller/campus_l3_ids_controller_v13_decision_modes.py
+
+capture:
+  interface: any
+  filter: "host 10.10.40.14 or host 10.10.60.12 or host 10.10.10.1 or host 10.10.10.2 or host 10.10.10.3"
+  output_name: mixed_benign_malicious_live.pcap
+
+server:
+  host: h14
+  ip: 10.10.40.14
+  iperf3_port: 5201
+
+traffic:
+  benign:
+    - name: benign_tcp_h2_to_h14
+      type: iperf3_tcp
+      src: h2
+      dst: h14
+      duration: 20
+      parallel: 1
+
+    - name: benign_tcp_h3_to_h14
+      type: iperf3_tcp
+      src: h3
+      dst: h14
+      duration: 20
+      parallel: 1
+
+    - name: benign_udp_low_h3_to_h14
+      type: iperf3_udp
+      src: h3
+      dst: h14
+      bandwidth: 1M
+      duration: 20
+
+  malicious:
+    - name: malicious_udp_high_h12_to_h14
+      type: iperf3_udp
+      src: h12
+      dst: h14
+      bandwidth: 80M
+      duration: 30
+
+analysis:
+  run_final_top20_pipeline: true
+  run_protocol_aware_policy: true
+  run_controller_comparison: true
+  generate_mixed_report: true
+
+paths:
+  output_root: experiments/results/mixed_traffic_experiments
+  active_feature_order: ml-service/models/active/feature_order.json

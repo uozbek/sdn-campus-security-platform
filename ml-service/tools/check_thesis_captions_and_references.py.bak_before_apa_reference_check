@@ -1,0 +1,235 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import argparse
+import json
+import re
+from datetime import datetime
+from pathlib import Path
+
+from docx import Document
+
+
+TABLE_PATTERNS = [
+    r"^Tablo\s+\d+",
+    r"^Çizelge\s+\d+",
+    r"^\*\*Tablo\s+\d+",
+    r"^\*\*Çizelge\s+\d+",
+]
+
+FIGURE_PATTERNS = [
+    r"^Şekil\s+\d+",
+    r"^\*\*Şekil\s+\d+",
+    r"^Figure\s+\d+",
+]
+
+REFERENCE_PATTERNS = [
+    r"^\[BIB\d{3}\]",
+    r"^\[LR\d{3}\]",
+    r"^\[MAN\d{3}\]",
+]
+
+
+def match_any(text: str, patterns: list[str]) -> bool:
+    text = text.strip()
+    return any(re.search(p, text, flags=re.IGNORECASE) for p in patterns)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(
+        description="Check thesis table/figure captions and draft reference markers."
+    )
+    parser.add_argument(
+        "--docx",
+        default="docs/tez_ana_taslak_tr_frontmatter_ozetli.docx",
+    )
+    parser.add_argument(
+        "--output-md",
+        default="docs/tez_caption_reference_check_report.md",
+    )
+    parser.add_argument(
+        "--output-json",
+        default="docs/tez_caption_reference_check_report.json",
+    )
+    args = parser.parse_args()
+
+    docx_path = Path(args.docx)
+    if not docx_path.exists():
+        raise SystemExit(f"[ERROR] DOCX not found: {docx_path}")
+
+    doc = Document(docx_path)
+    paragraphs = [p.text.strip() for p in doc.paragraphs if p.text.strip()]
+
+    table_caption_hits = []
+    figure_caption_hits = []
+    reference_hits = []
+
+    for i, text in enumerate(paragraphs, start=1):
+        if match_any(text, TABLE_PATTERNS):
+            table_caption_hits.append({"paragraph_index": i, "text": text})
+        if match_any(text, FIGURE_PATTERNS):
+            figure_caption_hits.append({"paragraph_index": i, "text": text})
+        if match_any(text, REFERENCE_PATTERNS):
+            reference_hits.append({"paragraph_index": i, "text": text})
+
+    # Markdown tablosundan gelen başlıklar bazen "Tablo 3.x" yerine
+    # "SDN tabanlı..." gibi düz metin olabiliyor. Bu nedenle "Tablo" kelimesi geçenleri de ayrıca raporlayalım.
+    loose_table_mentions = [
+        {"paragraph_index": i, "text": t}
+        for i, t in enumerate(paragraphs, start=1)
+        if "tablo" in t.lower()
+    ]
+
+    loose_figure_mentions = [
+        {"paragraph_index": i, "text": t}
+        for i, t in enumerate(paragraphs, start=1)
+        if "şekil" in t.lower() or "figure" in t.lower()
+    ]
+
+    checks = []
+
+    table_count = len(doc.tables)
+    shape_count = len(doc.inline_shapes)
+
+    checks.append({
+        "control": "Word table object count",
+        "expected": ">= 1",
+        "actual": table_count,
+        "status": "ok" if table_count >= 1 else "check",
+    })
+
+    checks.append({
+        "control": "Word inline shape count",
+        "expected": ">= 1",
+        "actual": shape_count,
+        "status": "ok" if shape_count >= 1 else "check",
+    })
+
+    checks.append({
+        "control": "Detected table caption count",
+        "expected": f">= table count or manually justified; table_count={table_count}",
+        "actual": len(table_caption_hits),
+        "status": "ok" if len(table_caption_hits) >= min(table_count, 1) else "check",
+    })
+
+    checks.append({
+        "control": "Detected figure caption count",
+        "expected": f">= inline shape count or manually justified; shape_count={shape_count}",
+        "actual": len(figure_caption_hits),
+        "status": "ok" if len(figure_caption_hits) >= min(shape_count, 1) else "check",
+    })
+
+    checks.append({
+        "control": "Reference marker count",
+        "expected": ">= 1",
+        "actual": len(reference_hits),
+        "status": "ok" if len(reference_hits) >= 1 else "check",
+    })
+
+    checks.append({
+        "control": "Kaynakça heading",
+        "expected": "present",
+        "actual": "present" if any("Kaynakça" in t for t in paragraphs) else "missing",
+        "status": "ok" if any("Kaynakça" in t for t in paragraphs) else "check",
+    })
+
+    result = {
+        "generated_at_utc": datetime.utcnow().isoformat(),
+        "docx": str(docx_path),
+        "counts": {
+            "paragraphs": len(doc.paragraphs),
+            "non_empty_paragraphs": len(paragraphs),
+            "tables": table_count,
+            "inline_shapes": shape_count,
+            "table_caption_hits": len(table_caption_hits),
+            "figure_caption_hits": len(figure_caption_hits),
+            "reference_hits": len(reference_hits),
+            "loose_table_mentions": len(loose_table_mentions),
+            "loose_figure_mentions": len(loose_figure_mentions),
+        },
+        "checks": checks,
+        "samples": {
+            "table_caption_hits": table_caption_hits[:30],
+            "figure_caption_hits": figure_caption_hits[:30],
+            "reference_hits": reference_hits[:30],
+            "loose_table_mentions": loose_table_mentions[:30],
+            "loose_figure_mentions": loose_figure_mentions[:30],
+        },
+        "summary": {
+            "ok": sum(1 for c in checks if c["status"] == "ok"),
+            "check": sum(1 for c in checks if c["status"] != "ok"),
+            "total": len(checks),
+        },
+    }
+
+    out_json = Path(args.output_json)
+    out_json.parent.mkdir(parents=True, exist_ok=True)
+    out_json.write_text(json.dumps(result, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    md = []
+    md.append("# Tez Tablo/Şekil Başlığı ve Kaynakça Ön Kontrol Raporu")
+    md.append("")
+    md.append(f"- Generated at UTC: `{result['generated_at_utc']}`")
+    md.append(f"- DOCX: `{docx_path}`")
+    md.append("")
+    md.append("## 1. Özet")
+    md.append("")
+    md.append(f"- OK: `{result['summary']['ok']}`")
+    md.append(f"- Check: `{result['summary']['check']}`")
+    md.append(f"- Total: `{result['summary']['total']}`")
+    md.append(f"- Word table count: `{table_count}`")
+    md.append(f"- Inline shape count: `{shape_count}`")
+    md.append(f"- Detected table captions: `{len(table_caption_hits)}`")
+    md.append(f"- Detected figure captions: `{len(figure_caption_hits)}`")
+    md.append(f"- Reference marker count: `{len(reference_hits)}`")
+    md.append("")
+    md.append("## 2. Kontroller")
+    md.append("")
+    md.append("| Kontrol | Beklenen | Mevcut | Durum |")
+    md.append("|---|---|---:|---|")
+    for c in checks:
+        md.append(f"| {c['control']} | {c['expected']} | {c['actual']} | {c['status']} |")
+
+    md.append("")
+    md.append("## 3. Bulunan Tablo Başlığı Örnekleri")
+    md.append("")
+    if table_caption_hits:
+        for item in table_caption_hits[:20]:
+            md.append(f"- P{item['paragraph_index']}: {item['text']}")
+    else:
+        md.append("_Tablo başlığı deseniyle eşleşen paragraf bulunamadı._")
+
+    md.append("")
+    md.append("## 4. Bulunan Şekil Başlığı Örnekleri")
+    md.append("")
+    if figure_caption_hits:
+        for item in figure_caption_hits[:20]:
+            md.append(f"- P{item['paragraph_index']}: {item['text']}")
+    else:
+        md.append("_Şekil başlığı deseniyle eşleşen paragraf bulunamadı._")
+
+    md.append("")
+    md.append("## 5. Bulunan Kaynakça/Referans İşaretleri")
+    md.append("")
+    if reference_hits:
+        for item in reference_hits[:20]:
+            md.append(f"- P{item['paragraph_index']}: {item['text'][:250]}")
+    else:
+        md.append("_[BIBxxx]/[LRxxx]/[MANxxx] biçiminde referans işareti bulunamadı._")
+
+    md.append("")
+    md.append("## 6. Not")
+    md.append("")
+    md.append("Bu rapor ön kontroldür. Bir sonraki aşamada tablo başlıklarının tabloların üstünde, şekil başlıklarının şekillerin altında bulunup bulunmadığı daha ayrıntılı olarak denetlenebilir. Kaynakça ise nihai aşamada APA7/FBE kılavuzuna göre biçimlendirilmelidir.")
+
+    out_md = Path(args.output_md)
+    out_md.parent.mkdir(parents=True, exist_ok=True)
+    out_md.write_text("\n".join(md), encoding="utf-8")
+
+    print("[INFO] MD:", out_md)
+    print("[INFO] JSON:", out_json)
+    print("[INFO] Summary:", result["summary"])
+
+
+if __name__ == "__main__":
+    main()

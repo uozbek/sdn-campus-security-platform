@@ -1,0 +1,22 @@
+[
+  "Inbound",
+  "URG_Flag_Count",
+  "Source_Port",
+  "Destination_Port",
+  "Bwd_Packets_s",
+  "Fwd_Packets_s",
+  "Bwd_Packet_Length_Min",
+  "Active_Mean",
+  "Min_Packet_Length",
+  "Active_Min",
+  "Bwd_Header_Length",
+  "Flow_Bytes_s",
+  "Bwd_Packet_Length_Max",
+  "min_seg_size_forward",
+  "Fwd_PSH_Flags",
+  "CWE_Flag_Count",
+  "Active_Max",
+  "Init_Win_bytes_forward",
+  "Packet_Length_Variance",
+  "act_data_pkt_fwd"
+]

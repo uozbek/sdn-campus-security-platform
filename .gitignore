@@ -1,23 +1,73 @@
-venv/
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
 *.pyo
 *.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 
-logs/*.csv
-logs/*.log
-logs/*.json
-
-experiments/results/
-datasets/raw/
-datasets/processed/
-
-*.pcap
-*.pcapng
-
+# Virtual environments
+venv/
 .env
-.DS_Store
+.env.*
+*.env
 
-ml-service/models/*.pkl
-ml-service/models/*.pt
-ml-service/models/*.joblib
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Logs
+*.log
+logs/*.csv
+logs/*.json
+ml-service/logs/*.csv
+ml-service/logs/*.json
+
+# Large datasets
+datasets/raw/
+datasets/processed/*.csv
+ml-service/datasets/raw/
+ml-service/datasets/processed/*.csv
+ml-service/datasets/samples/*.csv
+
+# Experiment outputs - keep structure with .gitkeep if needed
+experiments/results/
+ml-service/experiments/ml_metrics/*.csv
+ml-service/experiments/ml_metrics/*.json
+ml-service/experiments/sdn_metrics/*.csv
+ml-service/experiments/figures/*.png
+ml-service/experiments/reports/*.json
+
+# Model artifacts
+ml-service/models/active/*.pkl
+ml-service/models/active/*.onnx
+ml-service/models/active/*.joblib
+ml-service/models/active/*.bin
+
+# Thesis generated binary documents
+docs/*.docx
+docs/*.pdf
+docs/*backup*
+docs/*.bak*
+docs/*.before_*
+docs/final_reading_chunks/
+docs/final_global_docx_text_extract.txt
+
+# Keep markdown source documents
+!docs/*.md
+
+# Mininet / runtime temp
+*.pcap
+*.cap
+*.dump
+
+# Keep model metadata, not model binaries
+!ml-service/models/active/feature_order.json
+!ml-service/models/active/label_mapping.json
+!ml-service/models/active/model_metadata.json
+
+# Keep directory placeholders
+!.gitkeep
