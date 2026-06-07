@@ -104,6 +104,16 @@ Modelin çalışma zamanı pipeline’ında kullanılan genel akış şu şekild
 
 Bu yöntem, çevrimdışı eğitilen modelin çalışma zamanı SDN deney ortamına entegre edilmesini sağlamaktadır.
 
+### 4.6.1. Meta-Sezgisel Özellik Seçimi Deneyleri ve Nihai Model Seçimi
+
+Bu tez çalışmasında makine öğrenmesi modelinin geliştirilmesi yalnızca tek bir modelin eğitilmesiyle sınırlı tutulmamıştır. Model geliştirme sürecinde veri temizleme, özellik azaltma, aday özellik alt kümelerinin değerlendirilmesi, farklı sınıflandırıcıların karşılaştırılması ve çalışma zamanı uyumluluğu birlikte ele alınmıştır. Bu kapsamda PSO, HHO, GWO ve DFO gibi meta-sezgisel yöntemler, yüksek boyutlu ağ trafiği özellikleri içinden daha temsil edici alt kümelerin belirlenmesi amacıyla deneysel olarak değerlendirilmiştir.
+
+Meta-sezgisel özellik seçimi deneyleri, model geliştirme sürecinde aday özellik uzayını daraltmak ve sınıflandırma başarımı üzerindeki etkileri incelemek için kullanılmıştır. Bununla birlikte, nihai çalışma zamanı modeli yalnızca çevrimdışı sınıflandırma başarımına göre seçilmemiştir. Modelin SDN ortamında kullanılabilirliği, FastAPI tabanlı çıkarım servisine aktarılabilirliği, çalışma zamanı özellik çıkarımı iş akışıyla uyumluluğu ve denetleyici tarafında uygulanabilir politika kararlarına dönüştürülebilirliği de dikkate alınmıştır.
+
+Bu nedenle tez kapsamında nihai çalışma zamanı hattında Final XGBoost Top-20 modeli kullanılmıştır. Meta-sezgisel özellik seçimi deneyleri, model geliştirme sürecinin aday model ve özellik seçimi aşamasını desteklemiş; Final XGBoost Top-20 modeli ise karşılaştırmalı eğitim sonuçları, özellik önem sıralaması, model sadeliği ve çalışma zamanı entegrasyonuna uygunluğu nedeniyle aktif model olarak tercih edilmiştir. Bu ayrım, çalışmanın yalnızca en yüksek çevrimdışı doğruluk değerini aramadığını, aynı zamanda SDN denetleyicisiyle bütünleşebilen uygulanabilir bir IDS/IPS prototipi geliştirmeyi hedeflediğini göstermektedir.
+
+Model geliştirme sürecinin genel akışı Şekil 4.x’te özetlenmektedir. Bu akışta veri temizleme ve özellik azaltma adımlarından sonra meta-sezgisel özellik seçimi deneyleri ile XGBoost tabanlı Top-K özellik önem analizi birlikte değerlendirilmiş; aday modellerin karşılaştırılması sonucunda çalışma zamanı hattında kullanılacak Final XGBoost Top-20 modeli seçilmiştir.
+
 ## 4.7. Çalışma Zamanı Özellik Çıkarımı İş Akışı
 
 Çalışma zamanı doğrulamasında kullanılan en kritik adımlardan biri PCAP tabanlı özellik çıkarımıdır. Deney sırasında üretilen trafik PCAP olarak kaydedilmiş, ardından bu PCAP dosyasından Final XGBoost Top-20 modelinin beklediği seçilmiş özellikler çıkarılmıştır.
