@@ -60,7 +60,7 @@ Deney ortamı Mininet kullanılarak oluşturulmuştur. Mininet, SDN tabanlı ağ
 
 Bu çalışma kapsamında kullanılan topoloji, kampüs ağı mantığını temsil edecek şekilde tasarlanmıştır. Topolojide farklı alt ağlara ait normal istemciler, saldırgan hostlar, hedef sunucu ve quarantine hostu bulunmaktadır. Örnek IP grupları aşağıdaki şekilde yapılandırılmıştır:
 
-- Benign istemci hostları: `10.10.10.0/24`
+- Normal istemci hostları: `10.10.10.0/24`
 - Hedef sunucu: `10.10.40.14`
 - Saldırgan host: `10.10.60.12`
 - Quarantine hostu: `10.10.99.16`
@@ -104,7 +104,7 @@ Modelin çalışma zamanı pipeline’ında kullanılan genel akış şu şekild
 
 Bu yöntem, çevrimdışı eğitilen modelin çalışma zamanı SDN deney ortamına entegre edilmesini sağlamaktadır.
 
-## 4.7. Runtime Feature Extraction Pipeline
+## 4.7. Çalışma Zamanı Özellik Çıkarımı İş Akışı
 
 Çalışma zamanı doğrulamasında kullanılan en kritik adımlardan biri PCAP tabanlı özellik çıkarımıdır. Deney sırasında üretilen trafik PCAP olarak kaydedilmiş, ardından bu PCAP dosyasından Final XGBoost Top-20 modelinin beklediği seçilmiş özellikler çıkarılmıştır.
 
@@ -121,7 +121,7 @@ Bu amaçla geliştirilen çalışma zamanı iş akışı aşağıdaki alt adıml
 
 Bu pipeline sayesinde canlı deney ortamından elde edilen ham trafik, makine öğrenmesi modelinin kullanabileceği yapılandırılmış akış özelliklerine dönüştürülmüştür.
 
-## 4.8. Protocol-Aware Final Policy Katmanı
+## 4.8. Protokol Farkındalıklı Nihai Politika Katmanı
 
 Runtime model çıktısı tek başına yeterli değildir; çünkü model yalnızca akışın normal ya da saldırı niteliği taşıyıp taşımadığını tahmin eder. Ancak SDN denetleyicisi tarafında alınacak aksiyon, taşıma protokolü ve akış bağlamına göre farklılaşmalıdır.
 
@@ -246,9 +246,9 @@ Bu ayrım önemlidir; çünkü model `DROP` önerirken, denetleyici aynı akış
 
 Tekrarlı çalışma zamanı deneyleri üç sınıfta değerlendirilmiştir:
 
-### 4.13.1. Canonical Runs
+### 4.13.1. Ana Doğrulama Koşuları
 
-Canonical run’lar, tezde ana deneysel bulgu olarak kullanılabilecek koşulardır. Bu koşullarda model çıktıları, protokol bilgisi, port bilgisi ve denetleyici logları uyumlu şekilde değerlendirilebilmiştir.
+Ana doğrulama koşuları, tezde ana deneysel bulgu olarak kullanılabilecek koşulardır. Bu koşullarda model çıktıları, protokol bilgisi, port bilgisi ve denetleyici logları uyumlu şekilde değerlendirilebilmiştir.
 
 Bu kapsamda iki ana doğrulama koşusu belirlenmiştir:
 
@@ -261,7 +261,7 @@ Ana tez raporlaması için özellikle `run_05_port_aware_repeat_validation` seç
 
 `run_03_aligned_clean`, ilk başarılı çalışma zamanı doğrulaması koşusu olarak destekleyici deney konumundadır. Bu koşu, sistemin uçtan uca çalıştığını göstermesi açısından önemlidir.
 
-### 4.13.3. Diagnostic Runs
+### 4.13.3. Tanılayıcı Koşular
 
 `run_04_repeat_mixed_validation`, port bilgisinin controller loglarında bulunmaması nedeniyle diagnostic veya partial repetition olarak sınıflandırılmıştır. Bu koşu ana performans sonucu olarak kullanılmamış, ancak geliştirme sürecinde port-aware logging ihtiyacını göstermesi açısından değerli kabul edilmiştir.
 
@@ -310,7 +310,7 @@ Ana tez raporlaması için seçilen canonical deney koşusu aşağıdaki gibidir
 
 Bu koşu, denetleyici loglarında kaynak port ve hedef port bilgilerinin bulunması, protocol-aware çalışma zamanı politika yorumlamasının yapılabilmesi ve rate-limit, drop ve quarantine aksiyonlarının aynı deneyde gözlenmesi nedeniyle ana deney olarak seçilmiştir.
 
-### 4.16.3. Deneysel Çıktılar ve Artifact Yapısı
+### 4.16.3. Deneysel Çıktılar ve Çıktı Dosyası Yapısı
 
 Bu bölümde kullanılan tablo, şekil ve özet dosyaları aşağıdaki dizin altında üretilmiştir:
 
@@ -343,9 +343,9 @@ Kaynak: `tables/table_canonical_runtime_validation_summary.csv`
 
 Tablo 4.4.1, tez raporlamasında kullanılmak üzere seçilen canonical çalışma zamanı doğrulama koşularını özetlemektedir. Bu kapsamda `run_03_aligned_clean` ve `run_05_port_aware_repeat_validation` koşuları canonical doğrulama koşuları olarak değerlendirilmiştir.
 
-Her iki canonical koşuda da çalışma zamanı iş akışı dokuz adet Final Top-20 model tahmin kaydı üretmiştir. Denetleyici tarafında ise her koşuda üç binden fazla politika kararı kaydedilmiştir. Bu durum, Ryu tabanlı SDN denetleyicisinin deney süresince akış istatistiklerini sürekli izlediğini ve hibrit IDS/IPS politika mantığını aktif şekilde uyguladığını göstermektedir.
+Her iki ana doğrulama koşusuda da çalışma zamanı iş akışı dokuz adet Final Top-20 model tahmin kaydı üretmiştir. Denetleyici tarafında ise her koşuda üç binden fazla politika kararı kaydedilmiştir. Bu durum, Ryu tabanlı SDN denetleyicisinin deney süresince akış istatistiklerini sürekli izlediğini ve hibrit IDS/IPS politika mantığını aktif şekilde uyguladığını göstermektedir.
 
-En önemli bulgu, her iki canonical koşuda da çalışma zamanı model çıktısı ile denetleyici taraflı davranış arasında beş adet security-compatible akış düzeyinde eşleşme elde edilmiş olmasıdır. Ayrıca her iki koşuda da drop mitigation ve quarantine ile ilişkili kayıtlar gözlenmiştir. `run_05_port_aware_repeat_validation` koşusunda buna ek olarak rate-limit aksiyonu da gözlenmiştir. Bu nedenle `run_05`, tezde ana deney olarak sunulabilecek en güçlü çalışma zamanı doğrulama koşusudur.
+En önemli bulgu, her iki ana doğrulama koşusuda da çalışma zamanı model çıktısı ile denetleyici taraflı davranış arasında beş adet security-compatible akış düzeyinde eşleşme elde edilmiş olmasıdır. Ayrıca her iki koşuda da drop mitigation ve quarantine ile ilişkili kayıtlar gözlenmiştir. `run_05_port_aware_repeat_validation` koşusunda buna ek olarak rate-limit aksiyonu da gözlenmiştir. Bu nedenle `run_05`, tezde ana deney olarak sunulabilecek en güçlü çalışma zamanı doğrulama koşusudur.
 
 ### 4.16.5. Denetleyici Taraflı Politika Aksiyon Dağılımı
 
@@ -493,7 +493,7 @@ Bu sonuçlar güçlü bir çalışma zamanı doğrulama kanıtı sunsa da bazı 
 
 İlk olarak, deneyler kontrollü bir Mininet ortamında gerçekleştirilmiştir. Bu ortam tekrarlanabilirlik ve gözlemlenebilirlik açısından avantaj sağlasa da sistemin daha çeşitli trafik profilleri ve daha uzun süreli senaryolar altında da test edilmesi gerekmektedir.
 
-İkinci olarak, PCAP tabanlı çalışma zamanı model çıktıları ile denetleyici logları arasındaki akış düzeyinde eşleştirme zamanlama, akış istatistiği sorgulama aralığı ve port bilgilerinin denetleyici loglarında bulunmasına bağlıdır. Önceki diagnostic koşul olan `run_04_repeat_mixed_validation`, port bilgisinin yer almadığı durumlarda exact matching’in zayıfladığını göstermiştir.
+İkinci olarak, PCAP tabanlı çalışma zamanı model çıktıları ile denetleyici logları arasındaki akış düzeyinde eşleştirme zamanlama, akış istatistiği sorgulama aralığı ve port bilgilerinin denetleyici loglarında bulunmasına bağlıdır. Önceki tanılayıcı koşul olan `run_04_repeat_mixed_validation`, port bilgisinin yer almadığı durumlarda exact matching’in zayıfladığını göstermiştir.
 
 Üçüncü olarak, exact action matching tek başına yeterli bir ölçüt değildir. Çünkü makine öğrenmesi modeli ikili bir sınıflandırma çıktısı üretirken, SDN denetleyicisi rate-limit, drop ve quarantine gibi daha zengin bir aksiyon uzayına sahiptir. Bu nedenle security-compatible matching daha anlamlı bir değerlendirme yaklaşımıdır.
 
