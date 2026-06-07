@@ -1,35 +1,26 @@
 # SDN Campus Security Platform
 
-This project implements a research-oriented SDN-based IDS/IPS testbed for campus networks.
+## Project Overview
 
-## Main Components
+This project is a research-oriented SDN security platform for designing and validating machine-learning-assisted IDS/IPS mechanisms in a simulated campus network environment. It uses Mininet and Open vSwitch to emulate campus-like network topologies, the Ryu SDN controller to collect flow statistics and apply OpenFlow-based policies, and a FastAPI-based machine learning service to provide runtime traffic classification signals.
 
-- Mininet-based campus network topology
-- Ryu/OpenFlow-based SDN controller
-- Flow statistics collection
-- ML/DL-based inference service
-- Policy engine for detection decisions
-- Mitigation mechanisms:
-  - monitor
-  - rate-limit
-  - drop
-  - quarantine
-- Experiment runner and metrics collection
+The platform focuses on evaluating how offline-trained DDoS detection models can be integrated into an SDN control plane and transformed into policy decisions such as allow, monitor, rate-limit, drop, and quarantine. It enables controlled experimentation with benign and malicious traffic scenarios without affecting production infrastructure.
 
-## Initial Development Phases
+The current prototype is intended for academic research on SDN-based DDoS detection and prevention, runtime feature extraction, controller-side policy enforcement, and reproducible IDS/IPS validation workflows.
 
-1. Project skeleton and configuration
-2. Campus topology implementation
-3. Modular Ryu controller
-4. Flow statistics collection
-5. ML inference API
-6. Controller-to-ML integration
-7. Policy engine
-8. Mitigation mechanisms
-9. Experiment scenarios
-10. Evaluation and reporting
+## Core Components
 
-## Safety Notice
+- **Mininet / Open vSwitch testbed:** Emulates a campus-like SDN topology with benign clients, attacker hosts, target services, and quarantine-related network segments.
+- **Ryu SDN controller:** Collects flow statistics, maintains policy logic, and applies OpenFlow-based mitigation actions.
+- **Machine learning service:** Exposes the active detection model through a FastAPI inference API.
+- **Runtime feature extraction pipeline:** Converts captured traffic into model-compatible flow-level features.
+- **Policy and mitigation layer:** Translates model signals and network context into allow, monitor, rate-limit, drop, or quarantine decisions.
+- **Experiment and reporting tools:** Produce repeatable runtime validation outputs, logs, tables, and thesis-ready artifacts.
 
-All traffic generation and attack simulation must be performed only inside an isolated Mininet laboratory environment.
-Do not run attack traffic against real networks, public IP addresses, or institutional infrastructure.
+## Research Context
+
+The project supports doctoral research on software-defined campus network security, with a focus on DDoS detection and prevention using machine learning-assisted IDS/IPS mechanisms. The main research direction is not limited to offline model accuracy; instead, it evaluates whether trained models can be operationalized inside an SDN control loop and connected to practical mitigation behavior.
+
+## Repository Scope
+
+This repository contains source code, controller applications, topology definitions, experiment scripts, utility tools, and thesis-related markdown documentation. Large datasets, binary model artifacts, PCAP files, generated DOCX/PDF documents, and runtime logs are intentionally excluded from version control.
