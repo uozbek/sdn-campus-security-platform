@@ -112,7 +112,7 @@ Bu mimaride ML servis yalnızca tahmin, saldırı olasılığı ve önerilen aks
 │
 ├── ml-service/
 │   ├── app.py
-│   ├── app_heuristic_backup.py
+│   ├── app_heuristic_fallback.py
 │   │
 │   ├── training/
 │   │   ├── 00_prepare_cicddos_subset.py
@@ -841,7 +841,7 @@ Devam ediyor.
 ```text
 controller/campus_l3_ids_controller_v10_ml_ready.py
 ml-service/app.py
-ml-service/app_heuristic_backup.py
+ml-service/app_heuristic_fallback.py
 ml-service/models/active/feature_order.json
 ml-service/models/active/label_mapping.json
 ml-service/models/active/model_metadata.json
@@ -1780,7 +1780,7 @@ cd ~/sdn-campus-security-platform
 
 git add controller/campus_l3_ids_controller_v10_ml_ready.py \
         ml-service/app.py \
-        ml-service/app_heuristic_backup.py \
+        ml-service/app_heuristic_fallback.py \
         ml-service/models/active/feature_order.json \
         ml-service/models/active/label_mapping.json \
         ml-service/models/active/model_metadata.json \

@@ -70,7 +70,7 @@ Bu projenin amacı, kampüs ağına benzeyen segmentli bir SDN test yatağı üz
 │
 ├── ml-service/
 │   ├── app.py
-│   ├── app_heuristic_backup.py
+│   ├── app_heuristic_fallback.py
 │   ├── logs/
 │   │   └── inference_log.csv
 │   │
@@ -694,7 +694,7 @@ Devam ediyor.
 
 ### Eklenen / Değiştirilen Dosyalar
 - `ml-service/app.py`
-- `ml-service/app_heuristic_backup.py`
+- `ml-service/app_heuristic_fallback.py`
 - `ml-service/models/active/feature_order.json`
 - `ml-service/models/active/label_mapping.json`
 - `ml-service/models/active/model_metadata.json`
@@ -716,7 +716,7 @@ Devam ediyor.
 ```text
 ml-service/
 ├── app.py
-├── app_heuristic_backup.py
+├── app_heuristic_fallback.py
 ├── logs/
 │   └── inference_log.csv
 └── models/
@@ -927,7 +927,7 @@ Aşama 13 sonrası önerilen commit:
 cd ~/sdn-campus-security-platform
 
 git add ml-service/app.py \
-        ml-service/app_heuristic_backup.py \
+        ml-service/app_heuristic_fallback.py \
         ml-service/models/active/feature_order.json \
         ml-service/models/active/label_mapping.json \
         ml-service/models/active/model_metadata.json \
