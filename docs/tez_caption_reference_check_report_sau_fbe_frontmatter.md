@@ -1,6 +1,6 @@
 # Tez Tablo/Şekil Başlığı ve Kaynakça Ön Kontrol Raporu
 
-- Generated at UTC: `2026-06-07T10:18:04.984988`
+- Generated at UTC: `2026-06-08T13:42:10.211366`
 - DOCX: `docs/tez_ana_taslak_tr_guncel_sau_fbe.docx`
 
 ## 1. Özet
@@ -36,21 +36,21 @@
 - P201: Tablo 3.5. Mitigation/Prevention Odaklı Seçilmiş Çalışmalar
 - P204: Tablo 3.6. Veri Kümesi Odaklı Seçilmiş Çalışmalar
 - P207: Tablo 3.7. SDN tabanlı DDoS tespit ve önleme çalışmalarının yöntemsel karşılaştırması
-- P410: Tablo 4.4.1. Canonical tekrarlı çalışma zamanı doğrulama sonuçları
-- P415: Tablo 4.4.2. Denetleyici taraflı IDS/IPS politika aksiyon dağılımı
-- P425: Tablo 4.4.3. Final XGBoost Top-20 modelinin çalışma zamanı tahmin dağılımı
-- P431: Tablo 4.4.4. Protocol-aware final policy dağılımı
-- P441: Tablo 4.4.5. SDN denetleyicisi önleme aksiyon özeti
-- P450: Tablo 4.4.6. Flow-level model-controller karşılaştırması
-- P456: Tablo 4.4.7. Flow-level saldırı olasılığı ve protocol-aware final action özeti
-- P536: Tablo 5.1. Bu tez çalışmasının mevcut literatürle sonuç ve işlevsellik açısından karşılaştırılması
+- P415: Tablo 4.4.1. Canonical tekrarlı çalışma zamanı doğrulama sonuçları
+- P420: Tablo 4.4.2. Denetleyici taraflı IDS/IPS politika aksiyon dağılımı
+- P430: Tablo 4.4.3. Final XGBoost Top-20 modelinin çalışma zamanı tahmin dağılımı
+- P436: Tablo 4.4.4. Protocol-aware final policy dağılımı
+- P446: Tablo 4.4.5. SDN denetleyicisi önleme aksiyon özeti
+- P455: Tablo 4.4.6. Flow-level model-controller karşılaştırması
+- P461: Tablo 4.4.7. Flow-level saldırı olasılığı ve protocol-aware final action özeti
+- P541: Tablo 5.1. Bu tez çalışmasının mevcut literatürle sonuç ve işlevsellik açısından karşılaştırılması
 
 ## 4. Bulunan Şekil Başlığı Örnekleri
 
-- P416: Şekil 4.4.1. Denetleyici taraflı politika aksiyon dağılımı
-- P426: Şekil 4.4.2. Runtime NORMAL/SALDIRI tahmin dağılımı
-- P432: Şekil 4.4.3. Protocol-aware final policy aksiyon dağılımı
-- P442: Şekil 4.4.4. SDN denetleyicisi önleme aksiyon özeti
+- P421: Şekil 4.4.1. Denetleyici taraflı politika aksiyon dağılımı
+- P431: Şekil 4.4.2. Runtime NORMAL/SALDIRI tahmin dağılımı
+- P437: Şekil 4.4.3. Protocol-aware final policy aksiyon dağılımı
+- P447: Şekil 4.4.4. SDN denetleyicisi önleme aksiyon özeti
 
 ## 5. Kaynakça / Referans Sinyalleri
 

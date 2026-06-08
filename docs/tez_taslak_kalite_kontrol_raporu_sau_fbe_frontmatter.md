@@ -1,15 +1,15 @@
 # Tez Taslak Kalite Kontrol Raporu
 
-- Generated at UTC: `2026-06-07T10:18:04.411981`
+- Generated at UTC: `2026-06-08T13:42:09.650084`
 - DOCX: `docs/tez_ana_taslak_tr_guncel_sau_fbe.docx`
-- DOCX size: `93.6 KB`
+- DOCX size: `94.2 KB`
 
 ## 1. Genel DOCX Kontrolü
 
 | Kontrol | Değer | Durum |
 |---|---:|---|
-| Paragraph count | 741 | ok |
-| Non-empty paragraph count | 702 | ok |
+| Paragraph count | 746 | ok |
+| Non-empty paragraph count | 707 | ok |
 | Table count | 15 | ok |
 | Inline shape count | 4 | ok |
 | Heading order | True | ok |
@@ -27,8 +27,8 @@
 | Bölüm 2. Kavramsal ve Kuramsal Arka Plan | found | 100 |
 | Bölüm 3. Literatür Taraması ve İlgili Çalışmalar | found | 179 |
 | Bölüm 4. Yöntem ve Çalışma Zamanı Doğrulama | found | 217 |
-| Bölüm 5. Tartışma, Sınırlılıklar ve Gelecek Çalışmalar | found | 494 |
-| Bölüm 6. Sonuç ve Öneriler | found | 559 |
+| Bölüm 5. Tartışma, Sınırlılıklar ve Gelecek Çalışmalar | found | 499 |
+| Bölüm 6. Sonuç ve Öneriler | found | 564 |
 
 ## 3. Beklenen Tez Dosyaları
 
@@ -38,11 +38,11 @@
 | `docs/bolum_1_giris_tr.docx` | exists | 40.0 KB |
 | `docs/bolum_2_kavramsal_kuramsal_arka_plan_tr.md` | exists | 20.7 KB |
 | `docs/bolum_2_kavramsal_kuramsal_arka_plan_tr.docx` | exists | 42.9 KB |
-| `docs/bolum_3_literatur_taramasi_ve_ilgili_calismalar_tr.md` | exists | 38.6 KB |
+| `docs/bolum_3_literatur_taramasi_ve_ilgili_calismalar_tr.md` | exists | 38.9 KB |
 | `docs/bolum_3_literatur_taramasi_ve_ilgili_calismalar_tr.docx` | exists | 47.6 KB |
-| `docs/bolum_4_yontem_ve_runtime_dogrulama_tr.md` | exists | 42.5 KB |
-| `docs/bolum_4_yontem_ve_runtime_dogrulama_tr_with_artifacts.docx` | exists | 248.3 KB |
-| `docs/bolum_5_tartisma_sinirliliklar_gelecek_calismalar_tr.md` | exists | 37.0 KB |
+| `docs/bolum_4_yontem_ve_runtime_dogrulama_tr.md` | exists | 44.8 KB |
+| `docs/bolum_4_yontem_ve_runtime_dogrulama_tr_with_artifacts.docx` | exists | 248.9 KB |
+| `docs/bolum_5_tartisma_sinirliliklar_gelecek_calismalar_tr.md` | exists | 37.4 KB |
 | `docs/bolum_5_tartisma_sinirliliklar_gelecek_calismalar_tr.docx` | exists | 46.4 KB |
 | `docs/bolum_6_sonuc_ve_oneriler_tr.md` | exists | 13.7 KB |
 | `docs/bolum_6_sonuc_ve_oneriler_tr.docx` | exists | 40.5 KB |
