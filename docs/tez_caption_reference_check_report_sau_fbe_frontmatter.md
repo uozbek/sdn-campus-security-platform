@@ -1,6 +1,6 @@
 # Tez Tablo/Şekil Başlığı ve Kaynakça Ön Kontrol Raporu
 
-- Generated at UTC: `2026-06-08T18:39:30.098774`
+- Generated at UTC: `2026-06-08T18:45:22.888540`
 - DOCX: `docs/tez_ana_taslak_tr_guncel_sau_fbe.docx`
 
 ## 1. Özet
@@ -47,13 +47,13 @@
 
 ## 4. Bulunan Şekil Başlığı Örnekleri
 
-- P410: Şekil 4.4.1. Denetleyici taraflı politika aksiyon dağılımı
-- P420: Şekil 4.4.2. Runtime NORMAL/SALDIRI tahmin dağılımı
-- P426: Şekil 4.4.3. Protocol-aware final policy aksiyon dağılımı
-- P436: Şekil 4.4.4. SDN denetleyicisi önleme aksiyon özeti
-- P494: Şekil 4.4.5. Önerilen SDN tabanlı IDS/IPS mimarisinin bileşenleri
-- P495: Şekil 4.4.6. Model geliştirme ve nihai model seçimi iş akışı
-- P496: Şekil 4.4.7. Çalışma zamanı IDS/IPS karar döngüsü
+- P410: Şekil 4.4. Denetleyici taraflı politika aksiyon dağılımı
+- P420: Şekil 4.5. Çalışma zamanı NORMAL/SALDIRI tahmin dağılımı
+- P426: Şekil 4.6. Protokol farkındalıklı nihai politika aksiyon dağılımı
+- P436: Şekil 4.7. SDN denetleyicisi önleme aksiyon özeti
+- P494: Şekil 4.8. Önerilen SDN tabanlı IDS/IPS mimarisinin bileşenleri
+- P495: Şekil 4.9. Model geliştirme ve nihai model seçimi iş akışı
+- P496: Şekil 4.10. Çalışma zamanı IDS/IPS karar döngüsü
 
 ## 5. Kaynakça / Referans Sinyalleri
 
