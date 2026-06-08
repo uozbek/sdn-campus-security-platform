@@ -1,0 +1,7 @@
+flowchart LR
+    A[Raw CSV] --> B[Normalize Columns]
+    B --> C[Remove NaN / Inf]
+    C --> D[Drop Duplicates]
+    D --> E[Binary Label Encoding]
+    E --> F[Remove Constant Features]
+    F --> G[Clean Dataset]

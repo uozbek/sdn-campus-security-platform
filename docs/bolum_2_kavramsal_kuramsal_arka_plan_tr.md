@@ -110,7 +110,7 @@ Ancak SDN tabanlı çalışma zamanı güvenlik sistemlerinde bu metrikler tek b
 
 Bu nedenle bu tez çalışmasında model performansı yalnızca sınıflandırma metrikleriyle değil, denetleyici aksiyon distribution, akış düzeyinde model-controller comparison, mitigation log, quarantine log ve rate-limit log gibi çalışma zamanı göstergelerle de değerlendirilmiştir.
 
-## 2.14. Runtime Feature Extraction
+## 2.14. Çalışma Zamanı Özellik Çıkarımı
 
 Runtime özellik çıkarımı, canlı veya yakalanmış ağ trafiğinden modelin beklediği özelliklerin çıkarılması sürecidir. Bu süreç, çevrimdışı veri kümesi üzerinde model eğitimi ile çalışma zamanı model kullanımı arasındaki en kritik bağlantılardan biridir.
 

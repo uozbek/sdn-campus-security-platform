@@ -102,3 +102,17 @@ The repository is organized around five main concerns: SDN control, machine lear
 - `requirements.txt`: Python dependencies required for the controller, ML service, training scripts, monitoring tools, and document utilities.
 
 Large datasets, PCAP files, generated DOCX/PDF documents, binary model artifacts, runtime logs, and temporary backup files are excluded from version control to keep the repository lightweight and reproducible.
+
+## Architecture and Quality Report
+
+A repository-level architecture, code quality, and future feature roadmap is available in:
+
+- [`docs/repo_analysis_architecture_quality_features.md`](docs/repo_analysis_architecture_quality_features.md)
+
+Mermaid diagrams are available under:
+
+- [`docs/figures/architecture_high_level.mmd`](docs/figures/architecture_high_level.mmd)
+- [`docs/figures/ml_training_pipeline.mmd`](docs/figures/ml_training_pipeline.mmd)
+- [`docs/figures/runtime_ids_ips_lifecycle.mmd`](docs/figures/runtime_ids_ips_lifecycle.mmd)
+- [`docs/figures/data_preprocessing_pipeline.mmd`](docs/figures/data_preprocessing_pipeline.mmd)
+- [`docs/figures/quality_improvement_roadmap.mmd`](docs/figures/quality_improvement_roadmap.mmd)

@@ -1,0 +1,9 @@
+flowchart LR
+    A[Mininet / Open vSwitch<br/>Campus-like Topology] -->|Packet-In / Flow Stats| B[Ryu SDN Controller]
+    B -->|POST /predict| C[FastAPI ML Service]
+    C -->|Prediction + Score| B
+    B -->|OpenFlow FlowMod| A
+    D[config.yaml<br/>Policy thresholds] --> B
+    D --> C
+    E[Resource Monitor] --> B
+    F[Researcher / Admin] --> D

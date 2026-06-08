@@ -1,0 +1,10 @@
+flowchart LR
+    A[CIC-DDoS2019 Raw Data] --> B[Clean Dataset]
+    B --> C[Feature Reduction]
+    C --> D[Metaheuristic Feature Selection<br/>PSO / HHO / GWO / DFO]
+    C --> E[XGBoost Top-K Feature Importance]
+    D --> F[Candidate Model Training]
+    E --> F
+    F --> G[Model Comparison]
+    G --> H[Final XGBoost Top-20 Export]
+    H --> I[FastAPI Runtime Inference]

@@ -133,7 +133,7 @@ Bu pipeline sayesinde canlı deney ortamından elde edilen ham trafik, makine ö
 
 ## 4.8. Protokol Farkındalıklı Nihai Politika Katmanı
 
-Runtime model çıktısı tek başına yeterli değildir; çünkü model yalnızca akışın normal ya da saldırı niteliği taşıyıp taşımadığını tahmin eder. Ancak SDN denetleyicisi tarafında alınacak aksiyon, taşıma protokolü ve akış bağlamına göre farklılaşmalıdır.
+Çalışma zamanı model çıktısı tek başına yeterli değildir; çünkü model yalnızca akışın normal ya da saldırı niteliği taşıyıp taşımadığını tahmin eder. Ancak SDN denetleyicisi tarafında alınacak aksiyon, taşıma protokolü ve akış bağlamına göre farklılaşmalıdır.
 
 Bu nedenle protocol-aware final policy katmanı geliştirilmiştir. Bu katman model tahminlerini PCAP içinden çıkarılan protokol bilgisiyle birlikte yorumlar. Özellikle TCP kontrol benzeri akışlar, UDP saldırı akışları ve quarantine sonrası gözlenen akışlar birbirinden ayrıştırılır.
 
@@ -410,7 +410,7 @@ Kaynak: `tables/table_protocol_aware_final_policy_distribution.csv`
 **Şekil 4.4.3. Protocol-aware final policy aksiyon dağılımı**  
 Kaynak: `figures/fig_protocol_aware_final_policy_distribution.png`
 
-Runtime model çıktısı temel olarak ikili bir sınıflandırma sunmaktadır: normal ya da saldırı. Ancak SDN denetleyicisi tarafında bu çıktıların doğrudan kullanılması her zaman yeterli değildir. Özellikle TCP kontrol benzeri akışların, trafik bağlamı nedeniyle yüksek saldırı olasılığı alması mümkündür. Buna rağmen bu akışların yüksek hacimli UDP flood akışlarıyla aynı şekilde ele alınması doğru olmayacaktır.
+Çalışma zamanı model çıktısı temel olarak ikili bir sınıflandırma sunmaktadır: normal ya da saldırı. Ancak SDN denetleyicisi tarafında bu çıktıların doğrudan kullanılması her zaman yeterli değildir. Özellikle TCP kontrol benzeri akışların, trafik bağlamı nedeniyle yüksek saldırı olasılığı alması mümkündür. Buna rağmen bu akışların yüksek hacimli UDP flood akışlarıyla aynı şekilde ele alınması doğru olmayacaktır.
 
 Bu nedenle protocol-aware final policy katmanı geliştirilmiştir. Bu katman model çıktısını taşıma protokolü ve akış bağlamı ile birlikte yorumlamaktadır. `run_05` koşusunda aşağıdaki final policy sınıfları üretilmiştir:
 

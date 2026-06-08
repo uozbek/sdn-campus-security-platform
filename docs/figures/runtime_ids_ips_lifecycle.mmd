@@ -1,0 +1,12 @@
+flowchart LR
+    A[Flow Stats] --> B[Ryu IDS/IPS Controller]
+    B --> C[FastAPI ML Service]
+    C --> D{Attack Probability<br/>and Policy Context}
+    D -->|Low risk| E[Allow / Monitor]
+    D -->|Suspicious| F[Rate-limit]
+    D -->|High risk| G[Drop]
+    D -->|Repeated high-risk source| H[Quarantine Candidate]
+    F --> I[OpenFlow Meter / FlowMod]
+    G --> I
+    H --> I
+    I --> J[Switch Enforcement]
