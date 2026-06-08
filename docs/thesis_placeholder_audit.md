@@ -1,6 +1,6 @@
 # Thesis Placeholder Audit
 
-- Generated at UTC: `2026-06-08T18:45:25.427404`
+- Generated at UTC: `2026-06-08T18:52:16.314289`
 - DOCX: `docs/tez_ana_taslak_tr_guncel_sau_fbe.docx`
 - Hit count: `9`
 - Expected frontmatter TODO count: `9`

@@ -1,6 +1,6 @@
 # Tez Tablo/Şekil Başlığı ve Kaynakça Ön Kontrol Raporu
 
-- Generated at UTC: `2026-06-08T18:45:22.888540`
+- Generated at UTC: `2026-06-08T18:52:13.609637`
 - DOCX: `docs/tez_ana_taslak_tr_guncel_sau_fbe.docx`
 
 ## 1. Özet
@@ -36,24 +36,24 @@
 - P201: Tablo 3.5. Mitigation/Prevention Odaklı Seçilmiş Çalışmalar
 - P204: Tablo 3.6. Veri Kümesi Odaklı Seçilmiş Çalışmalar
 - P207: Tablo 3.7. SDN tabanlı DDoS tespit ve önleme çalışmalarının yöntemsel karşılaştırması
-- P404: Tablo 4.4.1. Canonical tekrarlı çalışma zamanı doğrulama sonuçları
-- P409: Tablo 4.4.2. Denetleyici taraflı IDS/IPS politika aksiyon dağılımı
-- P419: Tablo 4.4.3. Final XGBoost Top-20 modelinin çalışma zamanı tahmin dağılımı
-- P425: Tablo 4.4.4. Protocol-aware final policy dağılımı
-- P435: Tablo 4.4.5. SDN denetleyicisi önleme aksiyon özeti
-- P444: Tablo 4.4.6. Flow-level model-controller karşılaştırması
-- P450: Tablo 4.4.7. Flow-level saldırı olasılığı ve protocol-aware final action özeti
+- P404: Tablo 4.1. Canonical tekrarlı çalışma zamanı doğrulama sonuçları
+- P409: Tablo 4.2. Denetleyici taraflı IDS/IPS politika aksiyon dağılımı
+- P419: Tablo 4.3. Final XGBoost Top-20 modelinin çalışma zamanı tahmin dağılımı
+- P425: Tablo 4.4. Protokol farkındalıklı nihai politika dağılımı
+- P435: Tablo 4.5. SDN denetleyicisi önleme aksiyon özeti
+- P444: Tablo 4.6. Akış düzeyinde model-denetleyici karşılaştırması
+- P450: Tablo 4.7. Akış düzeyinde saldırı olasılığı ve protokol farkındalıklı nihai aksiyon özeti
 - P538: Tablo 5.1. Bu tez çalışmasının mevcut literatürle sonuç ve işlevsellik açısından karşılaştırılması
 
 ## 4. Bulunan Şekil Başlığı Örnekleri
 
-- P410: Şekil 4.4. Denetleyici taraflı politika aksiyon dağılımı
-- P420: Şekil 4.5. Çalışma zamanı NORMAL/SALDIRI tahmin dağılımı
-- P426: Şekil 4.6. Protokol farkındalıklı nihai politika aksiyon dağılımı
-- P436: Şekil 4.7. SDN denetleyicisi önleme aksiyon özeti
-- P494: Şekil 4.8. Önerilen SDN tabanlı IDS/IPS mimarisinin bileşenleri
-- P495: Şekil 4.9. Model geliştirme ve nihai model seçimi iş akışı
-- P496: Şekil 4.10. Çalışma zamanı IDS/IPS karar döngüsü
+- P410: Şekil 4.1. Denetleyici taraflı politika aksiyon dağılımı
+- P420: Şekil 4.2. Çalışma zamanı NORMAL/SALDIRI tahmin dağılımı
+- P426: Şekil 4.3. Protokol farkındalıklı nihai politika aksiyon dağılımı
+- P436: Şekil 4.4. SDN denetleyicisi önleme aksiyon özeti
+- P494: Şekil 4.5. Önerilen SDN tabanlı IDS/IPS mimarisinin bileşenleri
+- P495: Şekil 4.6. Model geliştirme ve nihai model seçimi iş akışı
+- P496: Şekil 4.7. Çalışma zamanı IDS/IPS karar döngüsü
 
 ## 5. Kaynakça / Referans Sinyalleri
 
