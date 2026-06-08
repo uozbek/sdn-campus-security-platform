@@ -114,6 +114,22 @@ Bu nedenle tez kapsamında nihai çalışma zamanı hattında Final XGBoost Top-
 
 Model geliştirme sürecinin genel akışı Şekil 4.x’te özetlenmektedir. Bu akışta veri temizleme ve özellik azaltma adımlarından sonra meta-sezgisel özellik seçimi deneyleri ile XGBoost tabanlı Top-K özellik önem analizi birlikte değerlendirilmiş; aday modellerin karşılaştırılması sonucunda çalışma zamanı hattında kullanılacak Final XGBoost Top-20 modeli seçilmiştir.
 
+### 4.6.2. Mimari ve Çalışma Zamanı Karar Akışının Görselleştirilmesi
+
+Önerilen sistemin bileşenleri, model geliştirme hattı ve çalışma zamanı IDS/IPS karar döngüsü ayrı görsellerle özetlenmiştir. Bu görseller, geliştirilen prototipin yalnızca çevrimdışı makine öğrenmesi modelinden ibaret olmadığını; Mininet/Open vSwitch tabanlı deney ortamı, Ryu denetleyicisi, FastAPI çıkarım servisi, politika karar katmanı ve OpenFlow tabanlı önleme aksiyonlarını birlikte ele alan bütünleşik bir SDN güvenlik mimarisi olduğunu göstermektedir.
+
+Şekil 4.4.5’te önerilen SDN tabanlı IDS/IPS mimarisinin ana bileşenleri verilmiştir. Bu mimaride Mininet/Open vSwitch ortamı ağ trafiğini üretmekte, Ryu denetleyicisi akış istatistiklerini toplamakta, FastAPI servisi model veya çalışma zamanı çıkarımı üretmekte ve nihai kararlar controller tarafındaki politika katmanı üzerinden OpenFlow kurallarına dönüştürülmektedir.
+
+Şekil 4.4.6’da model geliştirme ve nihai model seçimi iş akışı gösterilmiştir. Bu akış, CIC-DDoS2019 tabanlı veri hazırlama, özellik azaltma, meta-sezgisel özellik seçimi deneyleri, XGBoost tabanlı Top-K özellik önem analizi, aday model karşılaştırması ve Final XGBoost Top-20 modelinin çalışma zamanı hattına aktarılması adımlarını kapsamaktadır.
+
+Şekil 4.4.7’de ise çalışma zamanı IDS/IPS karar döngüsü sunulmuştur. Bu döngüde controller tarafından toplanan akış istatistikleri çıkarım servisine gönderilmekte, dönen risk/tahmin bilgisi politika karar katmanında değerlendirilmekte ve gerekirse allow, monitor, rate-limit, drop veya quarantine aksiyonları OpenFlow kuralı olarak uygulanmaktadır.
+
+**Şekil 4.4.5. Önerilen SDN tabanlı IDS/IPS mimarisinin bileşenleri**
+
+**Şekil 4.4.6. Model geliştirme ve nihai model seçimi iş akışı**
+
+**Şekil 4.4.7. Çalışma zamanı IDS/IPS karar döngüsü**
+
 ## 4.7. Çalışma Zamanı Özellik Çıkarımı İş Akışı
 
 Çalışma zamanı doğrulamasında kullanılan en kritik adımlardan biri PCAP tabanlı özellik çıkarımıdır. Deney sırasında üretilen trafik PCAP olarak kaydedilmiş, ardından bu PCAP dosyasından Final XGBoost Top-20 modelinin beklediği seçilmiş özellikler çıkarılmıştır.

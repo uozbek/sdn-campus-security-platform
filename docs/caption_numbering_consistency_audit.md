@@ -1,8 +1,8 @@
 # Caption Numbering Consistency Audit
 
-- Generated at UTC: `2026-06-08T18:30:17.781320`
+- Generated at UTC: `2026-06-08T18:39:30.362268`
 - DOCX: `docs/tez_ana_taslak_tr_guncel_sau_fbe.docx`
-- Caption count: `19`
+- Caption count: `22`
 - Duplicate number groups: `0`
 - Suspicious caption count: `0`
 
@@ -28,7 +28,10 @@
 | 457 | Bölüm 4. Yöntem ve Çalışma Zamanı Doğrulama | Şekil | 4.4.4 | SDN denetleyicisi önleme aksiyon özeti |
 | 465 | Bölüm 4. Yöntem ve Çalışma Zamanı Doğrulama | Tablo | 4.4.6 | Flow-level model-controller karşılaştırması |
 | 471 | Bölüm 4. Yöntem ve Çalışma Zamanı Doğrulama | Tablo | 4.4.7 | Flow-level saldırı olasılığı ve protocol-aware final action özeti |
-| 569 | Bölüm 5. Tartışma, Sınırlılıklar ve Gelecek Çalışmalar | Tablo | 5.1 | Bu tez çalışmasının mevcut literatürle sonuç ve işlevsellik açısından karşılaştırılması |
+| 534 | Bölüm 4 Genel Kapanış Değerlendirmesi | Şekil | 4.4.5 | Önerilen SDN tabanlı IDS/IPS mimarisinin bileşenleri |
+| 536 | Bölüm 4 Genel Kapanış Değerlendirmesi | Şekil | 4.4.6 | Model geliştirme ve nihai model seçimi iş akışı |
+| 538 | Bölüm 4 Genel Kapanış Değerlendirmesi | Şekil | 4.4.7 | Çalışma zamanı IDS/IPS karar döngüsü |
+| 580 | Bölüm 5. Tartışma, Sınırlılıklar ve Gelecek Çalışmalar | Tablo | 5.1 | Bu tez çalışmasının mevcut literatürle sonuç ve işlevsellik açısından karşılaştırılması |
 
 ## 2. Duplicate Number Groups
 

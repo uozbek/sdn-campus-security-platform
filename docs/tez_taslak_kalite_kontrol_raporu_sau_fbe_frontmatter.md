@@ -1,17 +1,17 @@
 # Tez Taslak Kalite Kontrol Raporu
 
-- Generated at UTC: `2026-06-08T18:30:16.994873`
+- Generated at UTC: `2026-06-08T18:39:29.450540`
 - DOCX: `docs/tez_ana_taslak_tr_guncel_sau_fbe.docx`
-- DOCX size: `94.0 KB`
+- DOCX size: `94.7 KB`
 
 ## 1. Genel DOCX Kontrolü
 
 | Kontrol | Değer | Durum |
 |---|---:|---|
-| Paragraph count | 735 | ok |
-| Non-empty paragraph count | 696 | ok |
+| Paragraph count | 746 | ok |
+| Non-empty paragraph count | 704 | ok |
 | Table count | 15 | ok |
-| Inline shape count | 4 | ok |
+| Inline shape count | 7 | ok |
 | Heading order | True | ok |
 
 ## 2. Beklenen Başlık Kontrolü
@@ -27,8 +27,8 @@
 | Bölüm 2. Kavramsal ve Kuramsal Arka Plan | found | 100 |
 | Bölüm 3. Literatür Taraması ve İlgili Çalışmalar | found | 179 |
 | Bölüm 4. Yöntem ve Çalışma Zamanı Doğrulama | found | 217 |
-| Bölüm 5. Tartışma, Sınırlılıklar ve Gelecek Çalışmalar | found | 488 |
-| Bölüm 6. Sonuç ve Öneriler | found | 553 |
+| Bölüm 5. Tartışma, Sınırlılıklar ve Gelecek Çalışmalar | found | 496 |
+| Bölüm 6. Sonuç ve Öneriler | found | 561 |
 
 ## 3. Beklenen Tez Dosyaları
 
@@ -40,8 +40,8 @@
 | `docs/bolum_2_kavramsal_kuramsal_arka_plan_tr.docx` | exists | 42.9 KB |
 | `docs/bolum_3_literatur_taramasi_ve_ilgili_calismalar_tr.md` | exists | 38.9 KB |
 | `docs/bolum_3_literatur_taramasi_ve_ilgili_calismalar_tr.docx` | exists | 47.6 KB |
-| `docs/bolum_4_yontem_ve_runtime_dogrulama_tr.md` | exists | 44.8 KB |
-| `docs/bolum_4_yontem_ve_runtime_dogrulama_tr_with_artifacts.docx` | exists | 248.8 KB |
+| `docs/bolum_4_yontem_ve_runtime_dogrulama_tr.md` | exists | 46.7 KB |
+| `docs/bolum_4_yontem_ve_runtime_dogrulama_tr_with_artifacts.docx` | exists | 290.2 KB |
 | `docs/bolum_5_tartisma_sinirliliklar_gelecek_calismalar_tr.md` | exists | 37.4 KB |
 | `docs/bolum_5_tartisma_sinirliliklar_gelecek_calismalar_tr.docx` | exists | 46.4 KB |
 | `docs/bolum_6_sonuc_ve_oneriler_tr.md` | exists | 13.7 KB |
@@ -95,7 +95,7 @@ Bu bölüm, Sakarya Üniversitesi Fen Bilimleri Enstitüsü Lisansüstü Tez Yaz
 | Ön bölüm/metin: Şekil Listesi | ok | Ana DOCX içinde arandı |
 | Ön bölüm/metin: Kaynakça | ok | Ana DOCX içinde arandı |
 | Word tablo nesnesi | ok | Tablo sayısı: 15 |
-| Word şekil nesnesi | ok | Inline shape sayısı: 4 |
+| Word şekil nesnesi | ok | Inline shape sayısı: 7 |
 | Sayfa kenar boşlukları okunabilirliği | ok | top=2.50 cm, bottom=2.50 cm, left=4.00 cm, right=2.50 cm |
 | Normal stil yazı tipi/punto | ok | font=Times New Roman, size=12.0 |
 

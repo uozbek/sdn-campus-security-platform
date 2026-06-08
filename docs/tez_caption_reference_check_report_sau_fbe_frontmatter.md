@@ -1,6 +1,6 @@
 # Tez Tablo/Şekil Başlığı ve Kaynakça Ön Kontrol Raporu
 
-- Generated at UTC: `2026-06-08T18:30:17.546782`
+- Generated at UTC: `2026-06-08T18:39:30.098774`
 - DOCX: `docs/tez_ana_taslak_tr_guncel_sau_fbe.docx`
 
 ## 1. Özet
@@ -9,9 +9,9 @@
 - Check: `0`
 - Total: `6`
 - Word table count: `15`
-- Inline shape count: `4`
+- Inline shape count: `7`
 - Detected table captions: `15`
-- Detected figure captions: `4`
+- Detected figure captions: `7`
 - Technical reference marker count: `0`
 - APA inline citation count: `9`
 - APA reference-like count: `94`
@@ -21,9 +21,9 @@
 | Kontrol | Beklenen | Mevcut | Durum |
 |---|---|---:|---|
 | Word table object count | >= 1 | 15 | ok |
-| Word inline shape count | >= 1 | 4 | ok |
+| Word inline shape count | >= 1 | 7 | ok |
 | Detected table caption count | >= 1 and manually consistent with table_count | 15 | ok |
-| Detected figure caption count | >= inline shape count or manually justified | 4 | ok |
+| Detected figure caption count | >= inline shape count or manually justified | 7 | ok |
 | Reference signal count | >= 1 technical marker, APA inline citation, or APA-like bibliography entry | technical_markers=0; apa_inline=9; apa_reference_like=94 | ok |
 | Kaynakça heading | present | present | ok |
 
@@ -43,7 +43,7 @@
 - P435: Tablo 4.4.5. SDN denetleyicisi önleme aksiyon özeti
 - P444: Tablo 4.4.6. Flow-level model-controller karşılaştırması
 - P450: Tablo 4.4.7. Flow-level saldırı olasılığı ve protocol-aware final action özeti
-- P530: Tablo 5.1. Bu tez çalışmasının mevcut literatürle sonuç ve işlevsellik açısından karşılaştırılması
+- P538: Tablo 5.1. Bu tez çalışmasının mevcut literatürle sonuç ve işlevsellik açısından karşılaştırılması
 
 ## 4. Bulunan Şekil Başlığı Örnekleri
 
@@ -51,6 +51,9 @@
 - P420: Şekil 4.4.2. Runtime NORMAL/SALDIRI tahmin dağılımı
 - P426: Şekil 4.4.3. Protocol-aware final policy aksiyon dağılımı
 - P436: Şekil 4.4.4. SDN denetleyicisi önleme aksiyon özeti
+- P494: Şekil 4.4.5. Önerilen SDN tabanlı IDS/IPS mimarisinin bileşenleri
+- P495: Şekil 4.4.6. Model geliştirme ve nihai model seçimi iş akışı
+- P496: Şekil 4.4.7. Çalışma zamanı IDS/IPS karar döngüsü
 
 ## 5. Kaynakça / Referans Sinyalleri
 
