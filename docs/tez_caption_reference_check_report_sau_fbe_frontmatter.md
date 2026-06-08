@@ -1,6 +1,6 @@
 # Tez Tablo/Şekil Başlığı ve Kaynakça Ön Kontrol Raporu
 
-- Generated at UTC: `2026-06-08T18:28:48.277779`
+- Generated at UTC: `2026-06-08T18:30:17.546782`
 - DOCX: `docs/tez_ana_taslak_tr_guncel_sau_fbe.docx`
 
 ## 1. Özet
