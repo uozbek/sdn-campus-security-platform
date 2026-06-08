@@ -1,6 +1,6 @@
 # Tez Taslak Kalite Kontrol Raporu
 
-- Generated at UTC: `2026-06-08T18:52:13.061436`
+- Generated at UTC: `2026-06-08T18:55:34.088229`
 - DOCX: `docs/tez_ana_taslak_tr_guncel_sau_fbe.docx`
 - DOCX size: `94.7 KB`
 

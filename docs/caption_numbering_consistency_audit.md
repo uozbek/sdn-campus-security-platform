@@ -1,6 +1,6 @@
 # Caption Numbering Consistency Audit
 
-- Generated at UTC: `2026-06-08T18:52:13.855066`
+- Generated at UTC: `2026-06-08T18:55:34.883635`
 - DOCX: `docs/tez_ana_taslak_tr_guncel_sau_fbe.docx`
 - Caption count: `22`
 - Duplicate number groups: `0`

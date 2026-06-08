@@ -114,7 +114,7 @@ Bu nedenle tez kapsamında nihai çalışma zamanı hattında Final XGBoost Top-
 
 Model geliştirme sürecinin genel akışı Şekil 4.x’te özetlenmektedir. Bu akışta veri temizleme ve özellik azaltma adımlarından sonra meta-sezgisel özellik seçimi deneyleri ile XGBoost tabanlı Top-K özellik önem analizi birlikte değerlendirilmiş; aday modellerin karşılaştırılması sonucunda çalışma zamanı hattında kullanılacak Final XGBoost Top-20 modeli seçilmiştir.
 
-### 4.6.2. Mimari ve Çalışma Zamanı Karar Akışının Görselleştirilmesi
+### 4.6.2. Mimari, Model Geliştirme ve Çalışma Zamanı Karar Akışının Özeti
 
 Önerilen sistemin bileşenleri, model geliştirme hattı ve çalışma zamanı IDS/IPS karar döngüsü ayrı görsellerle özetlenmiştir. Bu görseller, geliştirilen prototipin yalnızca çevrimdışı makine öğrenmesi modelinden ibaret olmadığını; Mininet/Open vSwitch tabanlı deney ortamı, Ryu denetleyicisi, FastAPI çıkarım servisi, politika karar katmanı ve OpenFlow tabanlı önleme aksiyonlarını birlikte ele alan bütünleşik bir SDN güvenlik mimarisi olduğunu göstermektedir.
 
